@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html>
+
+
+
+<head>
+
+  <title>GAME OF LIFE</title>
+
+  <style>
+
+    * {
+
+      margin: 0;
+
+    }
+
+
+
+    body {
+
+      background: rgb(37, 38, 30);
+
+      height: 100%;
+
+    }
+
+
+
+    canvas {
+
+      display: block;
+
+    }
+
+  </style>
+
+</head>
+
+
+
+<body>
+
+  <canvas id="golCanvas">Please update your browser.</canvas>
+
+  <script>
+
+    var canvas = document.getElementById("golCanvas");
+
+    canvas.width = window.innerWidth;
+
+    canvas.height = window.innerHeight;
+
+    var ctx = canvas.getContext("2d");
+
+    var LEN = 10;
+
+    var x = Math.floor(canvas.width / LEN);
+
+    var y = Math.floor(canvas.height / LEN);
+
+    var myGol = [];
+
+    var golTmp = [];
+
+
+
+    function initMatrix() {
+
+      for (var xVal = 0; xVal <= x + 2; xVal++) {
+
+        myGol[xVal] = [];
+
+        golTmp[xVal] = [];
+
+        for (var yVal = 0; yVal <= y + 2; yVal++) {
+
+          golTmp[xVal][yVal] = 0;
+
+          var randVal = Math.floor((Math.random() * 2));
+
+          myGol[xVal][yVal] = randVal;
+
+          if (randVal == 1) {
+
+            draw(xVal, yVal);
+
+          }
+
+        }
+
+      }
+
+    }
+
+
+
+    function draw(x, y) {
+
+      ctx.fillStyle = "rgb(166,109,3)";
+
+      ctx.fillRect(LEN * x, LEN * y, LEN, LEN);
+
+    }
+
+
+
+    function nextStep() {
+
+      for (var xVal = 1; xVal <= x; xVal++) {
+
+        for (var yVal = 1; yVal <= y; yVal++) {
+
+          var neighbors = getNeighborCount(xVal, yVal);
+
+          if (myGol[xVal][yVal] == 1) {
+
+            if (neighbors < 2 || neighbors > 3) {
+
+              golTmp[xVal][yVal] = 0;
+
+            } else {
+
+              golTmp[xVal][yVal] = 1;
+
+            }
+
+          } else {
+
+            if (neighbors == 3) {
+
+              golTmp[xVal][yVal] = 1;
+
+            } else {
+
+              golTmp[xVal][yVal] = 0;
+
+            }
+
+          }
+
+        }
+
+      }
+
+
+
+      myGol = golTmp.map(function(arr) {
+
+        return arr.slice();
+
+      });
+
+
+
+      ctx.fillStyle = "rgb(37,38,30)";
+
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+
+
+      for (var xVal = 1; xVal <= x; xVal++) {
+
+        for (var yVal = 1; yVal <= y; yVal++) {
+
+          if (myGol[xVal][yVal] == 1) {
+
+            draw(xVal, yVal);
+
+          }
+
+        }
+
+      }
+
+    }
+
+
+
+    function getNeighborCount(xVal, yVal) {
+
+      var count = 0;
+
+      for (var i = -1; i <= 1; i++) {
+
+        for (var j = -1; j <= 1; j++) {
+
+          if (i == 0 && j == 0) continue; // Skip the cell itself
+
+          count += myGol[xVal + i][yVal + j] ? 1 : 0;
+
+        }
+
+      }
+
+      return count;
+
+    }
+
+
+
+    initMatrix();
+
+    setInterval(nextStep, 50);
+
+  </script>
+
+</body>
+
+
+
+</html>
+
+Image
+hash
