@@ -65,11 +65,12 @@ This repo contains not only the PFP collection images but also the SPA that util
 
  
 
- 
-'<script
+``` 
+<script
   s="1"
   src="/content/fa35c6517f10434d8dcdeb6f5d8b8be1cdc22d86001a97ea9f834c62af48d928i0"
-></script>'
+></script>
+```
 
 // <!--and so on...--!>
 
