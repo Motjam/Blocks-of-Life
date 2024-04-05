@@ -4,9 +4,9 @@ Please see the attached files they are seeded to "0" and go to 9999. They range 
 
 This repo contains not only the PFP collection images but also the SPA that utilizes the "Game of Life" code to assign the rules to the pixels on a bounded-grid (300x300) via Javascript. All new editions or additive editions will be posted here:
 
- '// <!--First we Inscribe the recursive modules then the generator code:--!>
+ // <--First we Inscribe the recursive modules then the generator code:-->
    
-   // <!--Recursive module:--!>
+// <--Recursive module:-->
 
    
 ```
@@ -35,7 +35,7 @@ This repo contains not only the PFP collection images but also the SPA that util
 ```
 
 
-// <!--now comes the javascript generator code--!>
+// <--now comes the javascript generator code-->
 
 
 ```
@@ -43,11 +43,10 @@ This repo contains not only the PFP collection images but also the SPA that util
 ```
 
 
-```
-<!--end Javascript...--!>
 
-// <!--then, you want to decide seed for simplicity's sake I will go with "0" like the collection there are many ways to reference this in your parent inscription but we will go with the best one in our book "sat endpoint" i.e., recursion via the sat number--!>
-```
+// <--end JavaScript-->
+
+// <--then, you want to decide seed for simplicity's sake I will go with "0" like the collection there are many ways to reference this in your parent inscription but we will go with the best one in our book "sat endpoint" i.e., recursion via the sat number-->
 
 
 
@@ -61,7 +60,7 @@ This repo contains not only the PFP collection images but also the SPA that util
 
 
 
- // <--!now comes the first child inscription!-->
+ // <--now comes the first child inscription-->
 
  
 
@@ -72,7 +71,7 @@ This repo contains not only the PFP collection images but also the SPA that util
 ></script>
 ```
 
-// <!--and so on...--!>
+// <--and so on...-->
 
 
 
